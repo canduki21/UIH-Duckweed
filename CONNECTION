@@ -1,2 +1,1 @@
-ssh duckweed2@192.168.50.2 "cd /home/duckweed2 && python3 DW_SERVER.py &"
-ssh duckweed2@192.168.50.2 "cd /home/duckweed2 && python3 DW_MAIN.py &"
+ssh duckweed2@192.168.50.2 "python3 DW_SERVER.py && python3 DW_MAIN.py "
