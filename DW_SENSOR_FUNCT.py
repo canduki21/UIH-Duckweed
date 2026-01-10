@@ -198,18 +198,18 @@ def sens_setup():
     return
 
 def sens_read():
-    sens_dht22_read()
+    t, h = sens_dht22_read()
     time.sleep(1)
-    sens_mhz19_read()
+    co2 = sens_mhz19_read()
     time.sleep(1)
-    sens_spect_read()
+    r, g, b, nir = sens_spect_read()
     time.sleep(1)
     sens_therm_read()
     time.sleep(1)
     print("Sensor Read Done!")
-    return
+    return t, h, co2, r, g, b, nir
 
-'''
+
 
 if __name__ == '__main__':
         try:
@@ -233,6 +233,6 @@ if __name__ == '__main__':
             print("Ending Test")
             sys.exit(0)
 
-'''
+
 
 #------------------------------------------------------------------------------------------------#
