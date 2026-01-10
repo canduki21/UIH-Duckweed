@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+import time
+import DW_SENSOR_FUNCT as dwS
+import DW_FILE_FUNCT as dwF
+
+print("Sensor Setup in 3...")
+time.sleep(1)
+print("2...")
+time.sleep(1)
+print("1...")
+time.sleep(1)
+
+# -------- SETUP ONCE --------
+dwS.sens_setup()
+time.sleep(1)
+
+print("Sensor setup complete")
+print("Entering continuous logging mode")
+
+# -------- LIVE LOGGING LOOP --------
+'''
+while True:
+    print("Read dht22:")
+    dwF.file_dht22_write()
+
+    print("Read mhz19:")
+    dwF.file_mhz19_write()
+
+    print("Read spect:")
+    dwF.file_spect_write()
+
+    print("Read therm:")
+    dwF.file_therm_write()
+
+    # 🔴 THIS IS THE ROW THE SERVER STREAMS
+    dwF.file_write()
+
+    print("Cycle complete\n")
+    time.sleep(5)   # logging interval (seconds)
+'''
+row_data_to_send = dwF.file_write()
+return row_data_to_send
